@@ -6,78 +6,77 @@ const Services = () => {
     {
       icon: Globe,
       title: "Web Development",
-      description: "Creating responsive and dynamic web applications with modern technologies.",
+      description: "Building responsive and dynamic web applications with modern technologies and best practices.",
       features: [
         "Responsive website design",
-        "Dynamic web applications",
+        "Full-stack web applications",
         "Interactive dashboards",
-        "Frontend & Backend development"
+        "Frontend & backend solutions"
       ]
     },
     {
       icon: Brain,
-      title: "AI & Data Science",
-      description: "Leveraging machine learning and AI to solve complex problems.",
+      title: "AI & Machine Learning",
+      description: "Leveraging artificial intelligence and machine learning to solve complex real-world problems.",
       features: [
         "Predictive modeling",
         "Classification algorithms",
-        "Natural Language Processing",
+        "Natural language processing",
         "Computer vision applications"
       ]
     },
     {
       icon: Database,
-      title: "Database Management",
-      description: "Efficient database design and management for optimal data handling.",
+      title: "Data Analytics",
+      description: "Transform raw data into actionable insights through advanced analytics and visualization.",
       features: [
-        "MySQL database design",
-        "Data analysis & reporting",
-        "Query optimization",
-        "Database administration"
+        "Data analysis & insights",
+        "Database design & optimization",
+        "Data visualization",
+        "Business intelligence"
       ]
     },
     {
       icon: Lightbulb,
-      title: "Project Development & Consultancy",
-      description: "End-to-end project development and technical consultation services.",
+      title: "Technical Consulting",
+      description: "Expert guidance on AI integration, project development, and technical solutions.",
       features: [
-        "Academic & personal projects",
-        "Workflow optimization",
-        "AI integration guidance",
-        "Technical consultation"
+        "Project consultation",
+        "AI integration strategy",
+        "Technical guidance",
+        "Workflow optimization"
       ]
     }
   ];
 
   return (
-    <section id="services" className="py-20 px-4">
+    <section id="services" className="py-20 px-4 bg-[hsl(60,56%,91%)]">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
-          <p className="text-accent font-semibold mb-2">What I Offer</p>
-          <h2 className="font-poppins text-4xl md:text-5xl font-bold">My Services</h2>
+          <p className="text-[hsl(197,71%,73%)] font-semibold text-lg mb-2">What I Offer</p>
+          <h2 className="font-poppins text-4xl md:text-5xl font-bold text-black">My Services</h2>
         </div>
 
         <div className="grid md:grid-cols-2 gap-8">
           {services.map((service, idx) => {
             const IconComponent = service.icon;
-            const isEven = idx % 2 === 0;
             
             return (
               <Card 
                 key={idx}
-                className="p-8 bg-card border-border hover:border-accent/50 transition-all hover:shadow-[0_0_30px_hsl(var(--accent)/0.2)] group hover:-translate-y-2 duration-300"
+                className="p-8 bg-white border-2 border-gray-200 hover:border-[hsl(197,71%,73%)] transition-all hover:shadow-lg hover:-translate-y-1 duration-300 group"
               >
-                <div className={`w-16 h-16 rounded-2xl ${isEven ? 'bg-accent/10' : 'bg-[hsl(var(--accent-secondary))]/10'} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform`}>
-                  <IconComponent className={`w-8 h-8 ${isEven ? 'text-accent' : 'text-[hsl(var(--accent-secondary))]'}`} />
+                <div className="w-16 h-16 bg-[hsl(197,71%,73%)]/10 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                  <IconComponent className="w-8 h-8 text-[hsl(197,71%,73%)]" />
                 </div>
 
-                <h3 className="font-poppins text-2xl font-semibold mb-3">{service.title}</h3>
-                <p className="text-muted-foreground mb-6">{service.description}</p>
+                <h3 className="font-poppins text-2xl font-bold text-black mb-3">{service.title}</h3>
+                <p className="text-gray-700 mb-6 leading-relaxed">{service.description}</p>
 
                 <ul className="space-y-2">
                   {service.features.map((feature, featureIdx) => (
-                    <li key={featureIdx} className="flex items-start gap-2 text-foreground/80">
-                      <span className={`${isEven ? 'text-accent' : 'text-[hsl(var(--accent-secondary))]'} mt-1`}>▹</span>
+                    <li key={featureIdx} className="flex items-start gap-2 text-gray-700">
+                      <span className="text-[hsl(197,71%,73%)] mt-1 font-bold">▸</span>
                       <span>{feature}</span>
                     </li>
                   ))}

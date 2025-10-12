@@ -2,61 +2,46 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Light Theme Design System - White, Beige, and Light Blue with Black Text */
 
 @layer base {
   :root {
-    /* Deep slate background for tech feel */
-    --background: 222 47% 11%;
-    --foreground: 210 40% 98%;
-
-    /* Card with slight elevation */
-    --card: 220 40% 15%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 220 40% 15%;
-    --popover-foreground: 210 40% 98%;
-
-    /* Navy blue primary */
-    --primary: 220 70% 30%;
-    --primary-foreground: 210 40% 98%;
-
-    /* Darker secondary for subtle contrast */
-    --secondary: 220 45% 20%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 220 40% 18%;
-    --muted-foreground: 215 20% 65%;
-
-    /* Electric cyan accent */
-    --accent: 190 100% 50%;
-    --accent-foreground: 222 47% 11%;
-
-    /* Orange secondary accent */
-    --accent-secondary: 30 100% 55%;
+    /* Pure white background */
+    --background: 0 0% 100%;
+    --foreground: 0 0% 0%;
+    
+    /* White cards */
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 0%;
+    
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 0%;
+    
+    /* Light blue primary */
+    --primary: 197 71% 73%;
+    --primary-foreground: 0 0% 0%;
+    
+    /* Beige secondary */
+    --secondary: 60 56% 91%;
+    --secondary-foreground: 0 0% 0%;
+    
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 30%;
+    
+    /* Light blue accent */
+    --accent: 197 71% 73%;
+    --accent-foreground: 0 0% 0%;
+    
+    --accent-secondary: 30 100% 65%;
     
     --destructive: 0 84% 60%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 220 30% 25%;
-    --input: 220 40% 20%;
-    --ring: 190 100% 50%;
-
+    --destructive-foreground: 0 0% 100%;
+    
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: 197 71% 73%;
+    
     --radius: 0.75rem;
-
-    /* Gradient definitions */
-    --gradient-primary: linear-gradient(135deg, hsl(220 70% 30%) 0%, hsl(190 100% 50%) 100%);
-    --gradient-accent: linear-gradient(135deg, hsl(190 100% 50%) 0%, hsl(30 100% 55%) 100%);
-    --gradient-subtle: linear-gradient(180deg, hsl(220 40% 15%) 0%, hsl(222 47% 11%) 100%);
-    
-    /* Shadows with glow */
-    --shadow-glow: 0 0 40px hsl(190 100% 50% / 0.3);
-    --shadow-card: 0 10px 30px -10px hsl(190 100% 50% / 0.2);
-    
-    /* Transitions */
-    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 }
 

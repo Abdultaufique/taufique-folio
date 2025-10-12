@@ -23,7 +23,7 @@ const Contact = () => {
 
     try {
       await emailjs.send(
-        'service_kfbu6dc',
+        'service_kfpa8kj85',
         'template_fspxlps',
         {
           from_name: formData.name,
@@ -32,7 +32,7 @@ const Contact = () => {
           message: formData.message,
           to_email: 'abdultaufique8@gmail.com'
         },
-        'KOTDNNY9_xhZ1jHuP'
+        'KOTPBAZ_xVxm8N4jg8I3PlQ'
       );
 
       toast({
@@ -41,10 +41,10 @@ const Contact = () => {
       });
       setFormData({ name: "", email: "", subject: "", message: "" });
     } catch (error) {
-      console.error("Email sending failed:", error);
+      console.error("Email failed:", error);
       toast({
         title: "Failed to Send",
-        description: "Something went wrong. Please try again or contact me directly.",
+        description: "Please try again or contact me directly.",
         variant: "destructive",
       });
     } finally {
@@ -57,131 +57,131 @@ const Contact = () => {
       icon: Mail,
       label: "Email",
       value: "abdultaufique8@gmail.com",
-      link: "mailto:abdultaufique8@gmail.com"
+      href: "mailto:abdultaufique8@gmail.com"
     },
     {
       icon: Phone,
       label: "Phone",
-      value: "+91-7000526546",
-      link: "tel:+917000526546"
+      value: "+91 XXX-XXX-XXXX",
+      href: "tel:+91XXXXXXXXXX"
     },
     {
       icon: Linkedin,
       label: "LinkedIn",
-      value: "linkedin.com/in/yourprofile",
-      link: "https://linkedin.com/in/yourprofile"
+      value: "Connect with me",
+      href: "https://linkedin.com/in/yourprofile"
     },
     {
       icon: Github,
       label: "GitHub",
-      value: "github.com/yourusername",
-      link: "https://github.com/yourusername"
+      value: "View my code",
+      href: "https://github.com/yourusername"
     },
     {
       icon: MapPin,
       label: "Location",
-      value: "Pune, Maharashtra, India",
-      link: ""
+      value: "Pune, India",
+      href: "#"
     }
   ];
 
   return (
-    <section id="contact" className="py-20 px-4">
+    <section id="contact" className="py-20 px-4 bg-[hsl(60,56%,91%)]">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
-          <p className="text-accent font-semibold mb-2">Get In Touch</p>
-          <h2 className="font-poppins text-4xl md:text-5xl font-bold">Contact Me</h2>
-          <p className="text-muted-foreground mt-4 max-w-2xl mx-auto">
-            Have a project in mind or want to discuss opportunities? Feel free to reach out!
+          <p className="text-[hsl(197,71%,73%)] font-semibold text-lg mb-2">Get In Touch</p>
+          <h2 className="font-poppins text-4xl md:text-5xl font-bold text-black">Contact Me</h2>
+          <p className="text-gray-700 text-lg mt-4 max-w-2xl mx-auto">
+            Have a project in mind or want to collaborate? Feel free to reach out!
           </p>
         </div>
 
         <div className="grid md:grid-cols-2 gap-8">
-          {/* Contact Information */}
+          {/* Contact Info */}
           <div className="space-y-6">
-            <Card className="p-8 bg-card border-border">
-              <h3 className="font-poppins text-2xl font-semibold mb-6">Contact Information</h3>
-              <div className="space-y-4">
-                {contactInfo.map((info, idx) => {
-                  const IconComponent = info.icon;
-                  return (
-                    <div key={idx} className="flex items-start gap-4 group">
-                      <div className="w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
-                        <IconComponent className="w-5 h-5 text-accent" />
-                      </div>
-                      <div className="flex-1">
-                        <p className="text-sm text-muted-foreground">{info.label}</p>
-                        {info.link ? (
-                          <a 
-                            href={info.link}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-foreground hover:text-accent transition-colors"
-                          >
-                            {info.value}
-                          </a>
-                        ) : (
-                          <p className="text-foreground">{info.value}</p>
-                        )}
-                      </div>
+            <h3 className="font-poppins text-2xl font-bold text-black mb-6">Contact Information</h3>
+            
+            {contactInfo.map((info, idx) => {
+              const IconComponent = info.icon;
+              return (
+                <Card key={idx} className="p-5 bg-white border-2 border-gray-200 hover:border-[hsl(197,71%,73%)] transition-all hover:shadow-md group">
+                  <a 
+                    href={info.href}
+                    target={info.href.startsWith('http') ? '_blank' : '_self'}
+                    rel={info.href.startsWith('http') ? 'noopener noreferrer' : ''}
+                    className="flex items-center gap-4"
+                  >
+                    <div className="w-12 h-12 bg-[hsl(197,71%,73%)]/10 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
+                      <IconComponent className="w-6 h-6 text-[hsl(197,71%,73%)]" />
                     </div>
-                  );
-                })}
-              </div>
-            </Card>
-
-            {/* Map placeholder */}
-            <Card className="p-8 bg-gradient-to-br from-accent/10 to-[hsl(var(--accent-secondary))]/10 border-border h-48 flex items-center justify-center">
-              <div className="text-center">
-                <MapPin className="w-12 h-12 text-accent mx-auto mb-2" />
-                <p className="text-muted-foreground">Pune, Maharashtra</p>
-              </div>
-            </Card>
+                    <div>
+                      <p className="text-sm text-gray-600 font-medium">{info.label}</p>
+                      <p className="text-black font-semibold">{info.value}</p>
+                    </div>
+                  </a>
+                </Card>
+              );
+            })}
           </div>
 
           {/* Contact Form */}
-          <Card className="p-8 bg-card border-border hover:border-accent/50 transition-all">
-            <h3 className="font-poppins text-2xl font-semibold mb-6">Send a Message</h3>
-            <form onSubmit={handleSubmit} className="space-y-4">
+          <Card className="p-8 bg-white border-2 border-gray-200">
+            <h3 className="font-poppins text-2xl font-bold text-black mb-6">Send Me a Message</h3>
+            
+            <form onSubmit={handleSubmit} className="space-y-5">
               <div>
+                <label className="block text-sm font-semibold text-black mb-2">Name</label>
                 <Input
+                  type="text"
                   placeholder="Your Name"
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                   required
-                  className="bg-background border-border focus:border-accent"
+                  className="bg-white border-2 border-gray-200 focus:border-[hsl(197,71%,73%)] text-black"
                 />
               </div>
+
               <div>
+                <label className="block text-sm font-semibold text-black mb-2">Email</label>
                 <Input
                   type="email"
-                  placeholder="Your Email"
+                  placeholder="your.email@example.com"
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                   required
-                  className="bg-background border-border focus:border-accent"
+                  className="bg-white border-2 border-gray-200 focus:border-[hsl(197,71%,73%)] text-black"
                 />
               </div>
+
               <div>
+                <label className="block text-sm font-semibold text-black mb-2">Subject</label>
                 <Input
-                  placeholder="Subject"
+                  type="text"
+                  placeholder="Project Inquiry"
                   value={formData.subject}
                   onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
                   required
-                  className="bg-background border-border focus:border-accent"
+                  className="bg-white border-2 border-gray-200 focus:border-[hsl(197,71%,73%)] text-black"
                 />
               </div>
+
               <div>
+                <label className="block text-sm font-semibold text-black mb-2">Message</label>
                 <Textarea
-                  placeholder="Your Message"
+                  placeholder="Tell me about your project..."
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                   required
                   rows={5}
-                  className="bg-background border-border focus:border-accent resize-none"
+                  className="bg-white border-2 border-gray-200 focus:border-[hsl(197,71%,73%)] text-black resize-none"
                 />
               </div>
-              <Button type="submit" variant="hero" className="w-full" disabled={isLoading}>
+
+              <Button 
+                type="submit" 
+                disabled={isLoading}
+                className="w-full bg-[hsl(197,71%,73%)] text-black hover:bg-[hsl(197,71%,68%)] font-semibold shadow-md hover:shadow-lg transition-all"
+              >
                 {isLoading ? (
                   <>
                     <Loader2 className="w-4 h-4 mr-2 animate-spin" />

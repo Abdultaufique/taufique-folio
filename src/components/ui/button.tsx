@@ -9,14 +9,14 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-primary text-primary-foreground hover:bg-primary/90",
+        default: "bg-[hsl(197,71%,73%)] text-black hover:bg-[hsl(197,71%,68%)] font-semibold",
         destructive: "bg-destructive text-destructive-foreground hover:bg-destructive/90",
-        outline: "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
-        secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80",
-        ghost: "hover:bg-accent hover:text-accent-foreground",
-        link: "text-primary underline-offset-4 hover:underline",
-        hero: "bg-gradient-to-r from-accent to-[hsl(var(--accent-secondary))] text-background font-semibold hover:shadow-[0_0_30px_hsl(var(--accent)/0.5)] hover:scale-105 transition-all duration-300",
-        accent: "bg-accent text-accent-foreground hover:bg-accent/90 font-semibold",
+        outline: "border-2 border-[hsl(197,71%,73%)] text-black bg-white hover:bg-[hsl(197,71%,73%)]/10",
+        secondary: "bg-[hsl(60,56%,91%)] text-black hover:bg-[hsl(60,56%,85%)]",
+        ghost: "hover:bg-[hsl(197,71%,73%)]/10 hover:text-black",
+        link: "text-[hsl(197,71%,73%)] underline-offset-4 hover:underline",
+        hero: "bg-[hsl(197,71%,73%)] text-black font-semibold hover:bg-[hsl(197,71%,68%)] hover:shadow-lg hover:scale-105 transition-all",
+        accent: "bg-[hsl(197,71%,73%)] text-black font-semibold hover:bg-[hsl(197,71%,68%)]",
       },
       size: {
         default: "h-10 px-4 py-2",

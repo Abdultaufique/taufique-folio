@@ -1,86 +1,132 @@
 import { Button } from "@/components/ui/button";
 import { Github, Linkedin, Mail } from "lucide-react";
 import profileImage from "@/assets/profile.jpg";
+import { useEffect, useState } from "react";
 
 const Hero = () => {
+  const titles = ["AI/ML Engineer", "Web Developer", "Data Analytics Enthusiast"];
+  const [titleIndex, setTitleIndex] = useState(0);
+  const [displayedText, setDisplayedText] = useState("");
+  const [isDeleting, setIsDeleting] = useState(false);
+  
+  useEffect(() => {
+    const currentTitle = titles[titleIndex];
+    const timeout = setTimeout(() => {
+      if (!isDeleting && displayedText !== currentTitle) {
+        // Typing
+        setDisplayedText(currentTitle.slice(0, displayedText.length + 1));
+      } else if (!isDeleting && displayedText === currentTitle) {
+        // Pause before deleting
+        setTimeout(() => setIsDeleting(true), 2000);
+      } else if (isDeleting && displayedText !== "") {
+        // Deleting
+        setDisplayedText(currentTitle.slice(0, displayedText.length - 1));
+      } else if (isDeleting && displayedText === "") {
+        // Move to next title
+        setIsDeleting(false);
+        setTitleIndex((prev) => (prev + 1) % titles.length);
+      }
+    }, isDeleting ? 50 : 100);
+    
+    return () => clearTimeout(timeout);
+  }, [displayedText, isDeleting, titleIndex, titles]);
+
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center px-4 py-20 relative overflow-hidden">
-      {/* Animated background elements */}
+    <section id="home" className="min-h-screen flex items-center justify-center px-4 py-20 relative overflow-hidden bg-white">
+      {/* Subtle decorative elements - beige and light blue */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-accent/10 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-[hsl(var(--accent-secondary))]/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
+        <div className="absolute top-20 left-10 w-64 h-64 bg-[hsl(197,71%,73%)]/10 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-20 right-10 w-80 h-80 bg-[hsl(60,56%,91%)] rounded-full blur-3xl"></div>
       </div>
 
       <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center relative z-10">
         {/* Left content */}
         <div className="space-y-6 text-center md:text-left">
           <div className="space-y-2">
-            <p className="text-accent font-roboto text-lg">Hello, I'm</p>
-            <h1 className="font-poppins text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight">
-              Abdul <span className="bg-gradient-to-r from-accent to-[hsl(var(--accent-secondary))] bg-clip-text text-transparent">Taufique</span>
+            <p className="text-[hsl(197,71%,73%)] font-medium text-lg">Hello, I am</p>
+            <h1 className="font-poppins text-5xl md:text-6xl lg:text-7xl font-bold text-black">
+              Abdul Tauque
             </h1>
-            <p className="text-xl md:text-2xl text-muted-foreground font-roboto">
-              A <span className="text-accent font-semibold">B.Tech AI & Data Science</span> Student From{" "}
-              <span className="text-[hsl(var(--accent-secondary))] font-semibold">Pune</span>
-            </p>
+            <div className="h-8 md:h-10">
+              <p className="text-xl md:text-2xl text-gray-700 font-medium">
+                {displayedText}
+                <span className="animate-pulse text-[hsl(197,71%,73%)]">|</span>
+              </p>
+            </div>
           </div>
 
-          <p className="text-base md:text-lg text-foreground/80 font-roboto max-w-xl mx-auto md:mx-0">
+          <p className="text-base md:text-lg text-gray-700 leading-relaxed max-w-xl mx-auto md:mx-0">
             Hi, I'm Abdul Taufique, a B.Tech AI & Data Science student passionate about emerging AI technologies 
             and applying them to solve real-world problems. I specialize in machine learning, web development, 
             and data analysis.
           </p>
 
           <div className="flex flex-wrap gap-4 justify-center md:justify-start">
-            <Button variant="hero" size="lg" className="group" onClick={() => document.getElementById('portfolio')?.scrollIntoView({ behavior: 'smooth' })}>
+            <Button 
+              className="bg-[hsl(197,71%,73%)] text-black hover:bg-[hsl(197,71%,68%)] font-semibold shadow-md hover:shadow-lg transition-all"
+              size="lg" 
+              onClick={() => document.getElementById('portfolio')?.scrollIntoView({ behavior: 'smooth' })}
+            >
               View Portfolio
-              <span className="ml-2 group-hover:translate-x-1 transition-transform">→</span>
+              <span className="ml-2">→</span>
             </Button>
-            <Button variant="outline" size="lg" className="border-accent text-accent hover:bg-accent/10" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>
+            <Button 
+              variant="outline" 
+              size="lg" 
+              className="border-2 border-[hsl(197,71%,73%)] text-black hover:bg-[hsl(197,71%,73%)]/10 font-medium"
+              onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+            >
               Contact Me
             </Button>
           </div>
 
           {/* Social links */}
           <div className="flex gap-4 justify-center md:justify-start pt-4">
-            <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer" 
-               className="w-10 h-10 rounded-full bg-card border border-border flex items-center justify-center hover:border-accent hover:text-accent transition-all hover:scale-110">
+            <a 
+              href="https://github.com/yourusername" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="w-11 h-11 rounded-full bg-white border-2 border-gray-200 flex items-center justify-center hover:border-[hsl(197,71%,73%)] hover:text-[hsl(197,71%,73%)] transition-all hover:scale-110 shadow-sm"
+            >
               <Github className="w-5 h-5" />
             </a>
-            <a href="https://linkedin.com/in/yourprofile" target="_blank" rel="noopener noreferrer"
-               className="w-10 h-10 rounded-full bg-card border border-border flex items-center justify-center hover:border-accent hover:text-accent transition-all hover:scale-110">
+            <a 
+              href="https://linkedin.com/in/yourprofile" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="w-11 h-10 rounded-full bg-white border-2 border-gray-200 flex items-center justify-center hover:border-[hsl(197,71%,73%)] hover:text-[hsl(197,71%,73%)] transition-all hover:scale-110 shadow-sm"
+            >
               <Linkedin className="w-5 h-5" />
             </a>
-            <a href="mailto:abdultaufique8@gmail.com"
-               className="w-10 h-10 rounded-full bg-card border border-border flex items-center justify-center hover:border-accent hover:text-accent transition-all hover:scale-110">
+            <a 
+              href="mailto:abdultaufique8@gmail.com"
+              className="w-11 h-11 rounded-full bg-white border-2 border-gray-200 flex items-center justify-center hover:border-[hsl(197,71%,73%)] hover:text-[hsl(197,71%,73%)] transition-all hover:scale-110 shadow-sm"
+            >
               <Mail className="w-5 h-5" />
             </a>
           </div>
         </div>
 
-        {/* Right content - Profile image with torn paper effect */}
+        {/* Right - Profile Image */}
         <div className="relative flex justify-center">
           <div className="relative w-80 h-80 md:w-96 md:h-96">
-            {/* Glow effect */}
-            <div className="absolute inset-0 bg-gradient-to-br from-accent/30 to-[hsl(var(--accent-secondary))]/30 rounded-full blur-2xl"></div>
+            {/* Soft glow effect */}
+            <div className="absolute inset-0 bg-gradient-to-br from-[hsl(197,71%,73%)]/20 to-[hsl(60,56%,91%)]/30 rounded-full blur-2xl"></div>
             
-            {/* Main image with torn paper effect */}
-            <div className="relative w-full h-full rounded-full overflow-hidden border-4 border-accent/20 shadow-[0_0_50px_hsl(var(--accent)/0.3)]"
-                 style={{ 
-                   clipPath: 'polygon(0% 0%, 100% 0%, 100% 75%, 95% 80%, 90% 76%, 85% 82%, 80% 78%, 75% 85%, 70% 80%, 65% 87%, 60% 82%, 55% 88%, 50% 84%, 45% 90%, 40% 85%, 35% 91%, 30% 87%, 25% 93%, 20% 88%, 15% 94%, 10% 90%, 5% 95%, 0% 90%)' 
-                 }}>
+            {/* Main image */}
+            <div className="relative w-full h-full rounded-full overflow-hidden border-4 border-[hsl(197,71%,73%)]/30 shadow-xl">
               <img 
                 src={profileImage} 
-                alt="Abdul Taufique" 
-                className="w-full h-full object-cover scale-110"
+                alt="Abdul Tauique - AI & Data Science Student" 
+                className="w-full h-full object-cover"
               />
             </div>
 
-            {/* Floating tech icons */}
-            <div className="absolute -top-4 -right-4 w-16 h-16 bg-gradient-to-br from-accent to-accent/50 rounded-lg flex items-center justify-center text-2xl font-bold shadow-lg animate-bounce" style={{ animationDuration: '3s' }}>
+            {/* Floating tech badges */}
+            <div className="absolute -top-4 -right-4 w-20 h-20 bg-[hsl(197,71%,73%)] text-black rounded-xl flex items-center justify-center text-2xl font-bold shadow-lg">
               AI
             </div>
-            <div className="absolute -bottom-4 -left-4 w-16 h-16 bg-gradient-to-br from-[hsl(var(--accent-secondary))] to-[hsl(var(--accent-secondary))]/50 rounded-lg flex items-center justify-center text-2xl font-bold shadow-lg animate-bounce" style={{ animationDuration: '3s', animationDelay: '0.5s' }}>
+            <div className="absolute -bottom-4 -left-4 w-20 h-20 bg-[hsl(60,56%,91%)] text-black border-2 border-gray-200 rounded-xl flex items-center justify-center text-2xl font-bold shadow-lg">
               DS
             </div>
           </div>
