@@ -52,7 +52,7 @@ const Services = () => {
   return (
     <section id="services" className="py-20 px-4 bg-[hsl(60,56%,91%)]">
       <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-16">
+        <div className="text-center mb-16 scroll-fade-in">
           <p className="text-[hsl(197,71%,73%)] font-semibold text-lg mb-2">What I Offer</p>
           <h2 className="font-poppins text-4xl md:text-5xl font-bold text-black">My Services</h2>
         </div>
@@ -64,7 +64,7 @@ const Services = () => {
             return (
               <Card 
                 key={idx}
-                className="p-8 bg-white border-2 border-gray-200 hover:border-[hsl(197,71%,73%)] transition-all hover:shadow-lg hover:-translate-y-1 duration-300 group"
+                className="p-8 bg-white border-2 border-gray-200 hover:border-[hsl(197,71%,73%)] transition-all hover:shadow-lg hover:-translate-y-1 duration-300 group scroll-fade-in"
               >
                 <div className="w-16 h-16 bg-[hsl(197,71%,73%)]/10 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                   <IconComponent className="w-8 h-8 text-[hsl(197,71%,73%)]" />

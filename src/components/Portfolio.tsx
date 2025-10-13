@@ -37,14 +37,14 @@ const Portfolio = () => {
   return (
     <section id="portfolio" className="py-20 px-4 bg-white">
       <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-16">
+        <div className="text-center mb-16 scroll-fade-in">
           <p className="text-[hsl(197,71%,73%)] font-semibold text-lg mb-2">My Work</p>
           <h2 className="font-poppins text-4xl md:text-5xl font-bold text-black">Featured Projects</h2>
         </div>
 
         <div className="grid md:grid-cols-2 gap-8">
           {projects.map((project, idx) => (
-            <Card key={idx} className="overflow-hidden bg-white border-2 border-gray-200 hover:border-[hsl(197,71%,73%)] transition-all hover:shadow-lg group">
+            <Card key={idx} className="overflow-hidden bg-white border-2 border-gray-200 hover:border-[hsl(197,71%,73%)] transition-all hover:shadow-lg group scroll-fade-in">
               {/* Project Header */}
               <div className={`h-32 bg-gradient-to-br ${project.gradient} flex items-center justify-center relative`}>
                 <div className="absolute inset-0 bg-white/50"></div>

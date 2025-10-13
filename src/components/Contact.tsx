@@ -62,20 +62,20 @@ const Contact = () => {
     {
       icon: Phone,
       label: "Phone",
-      value: "+91 XXX-XXX-XXXX",
-      href: "tel:+91XXXXXXXXXX"
+      value: "+91 7000526546",
+      href: "tel:+917000526546"
     },
     {
       icon: Linkedin,
       label: "LinkedIn",
       value: "Connect with me",
-      href: "https://linkedin.com/in/yourprofile"
+      href: "https://www.linkedin.com/in/abdul-taufique-6803622a7"
     },
     {
       icon: Github,
       label: "GitHub",
       value: "View my code",
-      href: "https://github.com/yourusername"
+      href: "https://github.com/Abdultaufique"
     },
     {
       icon: MapPin,
@@ -88,7 +88,7 @@ const Contact = () => {
   return (
     <section id="contact" className="py-20 px-4 bg-[hsl(60,56%,91%)]">
       <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-16">
+        <div className="text-center mb-16 scroll-fade-in">
           <p className="text-[hsl(197,71%,73%)] font-semibold text-lg mb-2">Get In Touch</p>
           <h2 className="font-poppins text-4xl md:text-5xl font-bold text-black">Contact Me</h2>
           <p className="text-gray-700 text-lg mt-4 max-w-2xl mx-auto">
@@ -98,7 +98,7 @@ const Contact = () => {
 
         <div className="grid md:grid-cols-2 gap-8">
           {/* Contact Info */}
-          <div className="space-y-6">
+          <div className="space-y-6 scroll-fade-in">
             <h3 className="font-poppins text-2xl font-bold text-black mb-6">Contact Information</h3>
             
             {contactInfo.map((info, idx) => {
@@ -125,7 +125,7 @@ const Contact = () => {
           </div>
 
           {/* Contact Form */}
-          <Card className="p-8 bg-white border-2 border-gray-200">
+          <Card className="p-8 bg-white border-2 border-gray-200 scroll-fade-in">
             <h3 className="font-poppins text-2xl font-bold text-black mb-6">Send Me a Message</h3>
             
             <form onSubmit={handleSubmit} className="space-y-5">
