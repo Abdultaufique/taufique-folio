@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Github, Linkedin, Mail } from "lucide-react";
+import { Github, Linkedin, Mail, Download } from "lucide-react";
 import profileImage from "@/assets/profile.jpg";
 import { useEffect, useState } from "react";
 
@@ -75,6 +75,17 @@ const Hero = () => {
               onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
             >
               Contact Me
+            </Button>
+            <Button 
+              asChild
+              variant="outline" 
+              size="lg" 
+              className="border-2 border-[hsl(197,71%,73%)] text-black hover:bg-[hsl(197,71%,73%)]/10 font-medium"
+            >
+              <a href="/Abdul_Taufique_Resume_intern.pdf" target="_blank" rel="noopener noreferrer" download>
+                <Download className="w-4 h-4 mr-2" />
+                Download Resume
+              </a>
             </Button>
           </div>
 
