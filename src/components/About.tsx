@@ -6,14 +6,6 @@ const About = () => (
   <section id="about" className="py-20 px-4 bg-white">
     <div className="max-w-4xl mx-auto">
       <Card className="p-8 bg-white border-2 border-blue-100 shadow-sm">
-        {/* Portrait Image */}
-        <div className="flex justify-center mb-6">
-          <img
-            src="/Abdul_taufique_Create_a_realistic-_professional_portrait_of_a_young_man_standing_c0bde8d0-fdc0-4f26-967d-1eba72b4a961.jpg"
-            alt="Abdul Taufique Portrait"
-            className="w-40 h-40 rounded-full object-cover border-4 border-blue-200 shadow"
-          />
-        </div>
         {/* Header */}
         <div className="text-center mb-6">
           <h1 className="font-poppins text-3xl font-bold text-blue-700 mb-2">
