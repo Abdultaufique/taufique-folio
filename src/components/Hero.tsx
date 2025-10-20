@@ -1,6 +1,5 @@
 import { Button } from "@/components/ui/button";
 import { Github, Linkedin, Mail, Download } from "lucide-react";
-import profileImage from "@/assets/profile.jpg";
 import { useEffect, useState } from "react";
 
 const Hero = () => {
@@ -125,8 +124,8 @@ const Hero = () => {
             {/* Main image */}
             <div className="relative w-full h-full rounded-full overflow-hidden border-4 border-[hsl(197,71%,73%)]/30 shadow-xl">
               <img 
-                src={profileImage} 
-                alt="Abdul Tauique - AI & Data Science Student" 
+                src="/Abdul_taufique_Create_a_realistic-_professional_portrait_of_a_young_man_standing_c0bde8d0-fdc0-4f26-967d-1eba72b4a961.jpg" 
+                alt="Abdul Taufique - AI & Data Science Student" 
                 className="w-full h-full object-cover"
               />
             </div>
